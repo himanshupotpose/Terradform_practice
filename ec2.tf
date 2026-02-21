@@ -3,10 +3,10 @@ provider "aws" {
   
   
 }
-resource "aws_ec2_instance" "apex" {
+resource "aws_instance" "apex" {
     ami = "ami-019715e0d74f695be"
     instance_type = "t3.micro"
-    key-name = "hp-key"
+    key_name = "hp-key"
     vpc_security_group_ids = [data.aws_vpc.default.id]
 }
 
