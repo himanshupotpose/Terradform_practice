@@ -8,6 +8,10 @@ resource "aws_instance" "apex" {
     instance_type = "t3.micro"
     key_name = "hp-key"
     vpc_security_group_ids = [data.aws_vpc.default.id]
+    tags = {
+      name = "my_instance"
+      env = "dev"
+    }
 }
 
 data "aws_vpc" "default" {
