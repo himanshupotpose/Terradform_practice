@@ -7,7 +7,7 @@ resource "aws_instance" "apex" {
     ami = "ami-019715e0d74f695be"
     instance_type = "t3.micro"
     key_name = "hp-key"
-    vpc_security_group_ids = [data.aws_vpc.default.id]
+    vpc_security_group_ids = [data.aws_default_security_group.default.id]
     tags = {
       name = "my_instance"
       env = "dev"
@@ -17,4 +17,8 @@ resource "aws_instance" "apex" {
 data "aws_vpc" "default" {
     default = true
   
+}
+
+data "aws_default_security_group" "default" {
+    vpc_id = data.aws_vpc.default.id
 }
