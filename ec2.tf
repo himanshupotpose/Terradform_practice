@@ -19,6 +19,6 @@ data "aws_vpc" "default" {
   
 }
 
-data "aws_default_security_group" "default" {
+resource "aws_default_security_group" "default" {
     vpc_id = data.aws_vpc.default.id
 }
